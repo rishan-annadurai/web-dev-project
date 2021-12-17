@@ -7,7 +7,7 @@ import {FormControl, FormCheck, FormSelect} from "react-bootstrap";
 
 
 const Register = () => {
-    const [user, setUser] = useState({username: '', password: '', firstName: '', lastName: ''});
+    const [user, setUser] = useState({username: '', password: '', firstName: '', lastName: '', accountType: ''});
     const navigate = useNavigate();
     const register = () => {
         fetch(`${API_URL}/register`, {
@@ -19,6 +19,7 @@ const Register = () => {
             }
         }).then(status => navigate('/profile'));
     };
+
     return (
         <div>
             <NavigationSidebar/>
@@ -55,11 +56,12 @@ const Register = () => {
                 className="form-control mb-3"/>
 
 
-            <FormSelect style={{"width": 250, "margin": "auto"}} aria-label="Default select example">
+            <FormSelect onChange={(e) => setUser({...user, accountType: e.target.value})}
+                        style={{"width": 250, "margin": "auto"}} aria-label="Default select example">
 
                 <option>Select an account type</option>
-                <option value="1">Listener</option>
-                <option value="2">Artist</option>
+                <option value="Listener">Listener</option>
+                <option value="Artist">Artist</option>
             </FormSelect>
 
             <button

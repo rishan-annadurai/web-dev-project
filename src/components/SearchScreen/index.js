@@ -53,24 +53,43 @@ const SearchScreen = () => {
 
             {/*{JSON.stringify(music)}*/}
 
-            <Form className="d-flex p-4" md={"4"}>
-                <FormControl
-                    type="search"
-                    placeholder="Search for songs"
-                    className="me-2"
-                    aria-label="Search"
-                    onChange={event => {
-                        setSearchTerm(event.target.value)
-                    }}
+            <div style={{"display": "inline"}} >
+                <input type="search"
+                       placeholder="Search for songs"
+                       style={{"width": 500, "display": "inline"}}
+                       className="form-control ml-3 mt-2"
+                       aria-label="Search"
+                       onChange={event => {
+                           setSearchTerm(event.target.value)
+                       }}
 
-                    onSubmit={event => {
-                        setSearchTerm(event.target.value)
-                    }}
+                       onSubmit={event => {
+                           setSearchTerm(event.target.value)
+                       }}
 
-                    value={searchTerm}
-                />
-                <Button onClick={findMusic} variant="outline-success">Search</Button>
-            </Form>
+                       value={searchTerm}/>
+
+                <Button style={{"display": "inline"}} onClick={findMusic} className="btn bg-success ml-3 mt-2 mb-2">Search</Button>
+            </div>
+
+
+            {/*<Form className="d-flex p-4" md={"4"}>*/}
+            {/*    <FormControl*/}
+            {/*        type="search"*/}
+            {/*        placeholder="Search for songs"*/}
+            {/*        className="me-2"*/}
+            {/*        aria-label="Search"*/}
+            {/*        onChange={event => {*/}
+            {/*            setSearchTerm(event.target.value)*/}
+            {/*        }}*/}
+
+            {/*        onSubmit={event => {*/}
+            {/*            setSearchTerm(event.target.value)*/}
+            {/*        }}*/}
+
+            {/*        value={searchTerm}*/}
+            {/*    />*/}
+            {/*</Form>*/}
 
             {/*<input className={"d-flex me-3"} type={"text"}*/}
             {/*       onChange={event => {*/}
@@ -78,8 +97,6 @@ const SearchScreen = () => {
             {/*       }}*/}
             {/*       onSubmit={e => findMusic()}*/}
             {/*       value={searchTerm}/>*/}
-            {/*/!*{JSON.stringify(music)}*!/*/}
-            {/*<button className={"me-4"} onClick={findMusic}> Search</button>*/}
 
             <ListGroup variant={"ml-3 mr-3"}>
                 {music.tracks.items.map(m =>
